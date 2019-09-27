@@ -14,8 +14,10 @@ spring:
 eureka:
     instance:
         leaseRenewalIntervalInSeconds: 10
-        statusPageUrlPath: ${server.context-path}info
-        healthCheckUrlPath: ${server.context-path}health
+        lease-expiration-duration-in-seconds: 
+        lease-renewal-interval-in-seconds: 10
+        health-check-url-path: ${server.context-path}health
+        status-page-url-path:  ${server.context-path}info
     client:
         registryFetchIntervalSeconds: 5
         service-url:
