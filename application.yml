@@ -13,8 +13,7 @@ spring:
 
 eureka:
     instance:
-        leaseRenewalIntervalInSeconds: 10
-        lease-expiration-duration-in-seconds: 
+        lease-expiration-duration-in-seconds: 10
         lease-renewal-interval-in-seconds: 10
         health-check-url-path: ${server.context-path}health
         status-page-url-path:  ${server.context-path}info
