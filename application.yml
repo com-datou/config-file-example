@@ -3,14 +3,25 @@ logging:
         com.netflix.discovery: 'OFF'
         org.springframework.cloud: 'DEBUG'
 spring:
-    application:
-        name: order
     cloud:
+        gateway:
+            routes:
+            -   id: eureka-server-example
+                uri: -lb://fsh-house
+                predicates:
+                -   Path=/eurake/**
+            -   id: monitor-server
+                uri: -lb://fsh-house
+                predicates:
+                -   Path=/eurake/**
+            -   id: config-server-example
+                uri: -lb://fsh-house
+                predicates:
+                -   Path=/eurake/**
         config:
             discovery:
                 enabled: true
                 service-id: CONFIG-SERVER-EXAMPLE
-
 eureka:
     instance:
         lease-expiration-duration-in-seconds: 10
@@ -23,10 +34,20 @@ eureka:
         client:
         registryFetchIntervalSeconds: 5
         service-url:
-            defaultZone: http://localhost:8761/eureka/server/eureka
+            defaultZone: http://localhost:8761/eureka/
         fetch-registry: false
         register-with-eureka: false
     
+
+logging:
+  level:
+    org.springframework.cloud.gateway: TRACE
+    org.springframework.http.server.reactive: DEBUG
+    org.springframework.web.reactive: DEBUG
+    reactor.ipc.netty: DEBUG
+    reactor.netty: DEBUG
+
+
 management:
     endpoint:
         beans:
