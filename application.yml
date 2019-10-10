@@ -6,16 +6,15 @@ spring:
     cloud:
         gateway:
             routes:
-            -   id: eureka-server-example
-                uri: -lb://fsh-house
+            -   id: CONFIG-SERVER-EXAMPLE
                 predicates:
                 -   Path=/eurake/**
+                # filters:
+                # -   AddRequestHeader=X-Request-Foo, Bar-{segment}
             -   id: monitor-server
-                uri: -lb://fsh-house
                 predicates:
                 -   Path=/eurake/**
             -   id: config-server-example
-                uri: -lb://fsh-house
                 predicates:
                 -   Path=/eurake/**
         config:
@@ -23,21 +22,17 @@ spring:
                 enabled: true
                 service-id: CONFIG-SERVER-EXAMPLE
 eureka:
+    client:
+        healthcheck:
+            enabled: true
     instance:
+        statusPageUrlPath: ${server.servlet.context-path}/info
+        healthCheckUrlPath: ${server.servlet.context-path}/health
         lease-expiration-duration-in-seconds: 10
         lease-renewal-interval-in-seconds: 10
-        health-check-url: 
-        home-page-url: 
-        health-check-url-path: 
-        home-page-url-path: 
-        hostname: 
-        client:
         registryFetchIntervalSeconds: 5
         service-url:
             defaultZone: http://localhost:8761/eureka/
-        fetch-registry: false
-        register-with-eureka: false
-    
 
 logging:
   level:
