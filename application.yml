@@ -11,12 +11,15 @@ spring:
                 -   Path=/eurake/**
                 # filters:
                 # -   AddRequestHeader=X-Request-Foo, Bar-{segment}
-            -   id: monitor-server
+            -   id: EUREKA-SERVER-EXAMPLE
                 predicates:
-                -   Path=/eurake/**
-            -   id: config-server-example
+                -   Path=/eurake/client**
+            -   id: EUREKA-CLIENT-EXAMPLE
                 predicates:
-                -   Path=/eurake/**
+                -   Path=/eurake/server**
+            -   id: MONITOR-SERVER-EXAMPLE
+                predicates:
+                -   Path=/monitor/**
         config:
             discovery:
                 enabled: true
