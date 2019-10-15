@@ -8,7 +8,7 @@ spring:
             routes:
             -   id: CONFIG-SERVER-EXAMPLE
                 predicates:
-                -   Path=/eurake/**
+                -   Path=/config/**
                 # filters:
                 # -   AddRequestHeader=X-Request-Foo, Bar-{segment}
             -   id: EUREKA-SERVER-EXAMPLE
