@@ -3,17 +3,22 @@ spring:
         gateway:
             routes:
             -   id: CONFIG-SERVER-EXAMPLE
+                uri: lb://CONFIG-SERVER-EXAMPLE
                 predicates:
                 -   Path=/eurake/**
+                reson:
                 # filters:
                 # -   AddRequestHeader=X-Request-Foo, Bar-{segment}
             -   id: EUREKA-SERVER-EXAMPLE
+                uri: lb://EUREKA-SERVER-EXAMPLE
                 predicates:
                 -   Path=/eurake/client**
             -   id: EUREKA-CLIENT-EXAMPLE
+                uri: lb://EUREKA-CLIENT-EXAMPLE
                 predicates:
                 -   Path=/eurake/server**
             -   id: MONITOR-SERVER-EXAMPLE
+                uri: lb://MONITOR-SERVER-EXAMPLE
                 predicates:
                 -   Path=/monitor/**
         config:
