@@ -29,8 +29,6 @@ eureka:
         healthcheck:
             enabled: true
     instance:
-        statusPageUrlPath: ${server.servlet.context-path}/info
-        healthCheckUrlPath: ${server.servlet.context-path}/health
         lease-expiration-duration-in-seconds: 10
         lease-renewal-interval-in-seconds: 10
         registryFetchIntervalSeconds: 5
