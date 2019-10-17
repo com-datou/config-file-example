@@ -5,8 +5,7 @@ spring:
             -   id: CONFIG-SERVER-EXAMPLE
                 uri: lb://CONFIG-SERVER-EXAMPLE
                 predicates:
-                -   Path=/eurake/**
-                reson:
+                -   Path=/config/**
                 # filters:
                 # -   AddRequestHeader=X-Request-Foo, Bar-{segment}
             -   id: EUREKA-SERVER-EXAMPLE
