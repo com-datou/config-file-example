@@ -11,7 +11,7 @@ spring:
             -   id: EUREKA-SERVER-EXAMPLE
                 uri: lb://EUREKA-SERVER-EXAMPLE
                 predicates:
-                -   Path=/eureka/client/**
+                -   Path=/eureka/server/**
             -   id: EUREKA-CLIENT-EXAMPLE
                 uri: lb://eureka-client-example
                 predicates:
