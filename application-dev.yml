@@ -11,11 +11,11 @@ spring:
             -   id: EUREKA-SERVER-EXAMPLE
                 uri: lb://EUREKA-SERVER-EXAMPLE
                 predicates:
-                -   Path=/eurake/client**
+                -   Path=/eureka/client**
             -   id: EUREKA-CLIENT-EXAMPLE
                 uri: lb://EUREKA-CLIENT-EXAMPLE
                 predicates:
-                -   Path=/eurake/server**
+                -   Path=/eureka/server**
             -   id: MONITOR-SERVER-EXAMPLE
                 uri: lb://MONITOR-SERVER-EXAMPLE
                 predicates:
