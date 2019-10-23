@@ -6,14 +6,15 @@ spring:
                 uri: lb://CONFIG-SERVER-EXAMPLE
                 predicates:
                 -   Path=/config/**
-                # filters:
-                # -   AddRequestHeader=X-Request-Foo, Bar-{segment}
+                filters: 
+                - RewritePath=/config/(?<path>.*), /$\{path}
+                - name: Hystrix 
             -   id: EUREKA-SERVER-EXAMPLE
                 uri: lb://EUREKA-SERVER-EXAMPLE
                 predicates:
                 -   Path=/eureka/server/**
             -   id: EUREKA-CLIENT-EXAMPLE
-                uri: lb://eureka-client-example
+                uri: lb://EUREKA-CLIENT-EXAMPLE
                 predicates:
                 -   Path=/eureka/client/**
             -   id: MONITOR-SERVER-EXAMPLE
