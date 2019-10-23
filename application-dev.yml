@@ -8,7 +8,6 @@ spring:
                 -   Path=/config/**
                 filters: 
                 - RewritePath=/config/(?<path>.*), /$\{path}
-                - name: Hystrix 
             -   id: EUREKA-SERVER-EXAMPLE
                 uri: lb://EUREKA-SERVER-EXAMPLE
                 predicates:
